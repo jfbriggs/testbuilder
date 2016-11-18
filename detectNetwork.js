@@ -21,6 +21,10 @@ var detectNetwork = function(cardNumber) {
     return "Visa";
   } else if (cardNumber.length === 16 && (cardNumber.substring(0, 2) === "51" || cardNumber.substring(0, 2) === "52" || cardNumber.substring(0, 2) === "53" || cardNumber.substring(0, 2) === "54" || cardNumber.substring(0, 2) === "55")) {
     return "MasterCard";
+  } else if ((cardNumber.length === 16 || cardNumber.length === 19) && (cardNumber.substring(0, 4) === "6011" || cardNumber.substring(0, 3) === "644" || cardNumber.substring(0, 3) === "645" || cardNumber.substring(0, 3) === "646" || cardNumber.substring(0, 3) === "647" || cardNumber.substring(0, 3) === "648" || cardNumber.substring(0, 3) === "649" || cardNumber.substring(0, 2) === "65")) {
+    return "Discover";
+  } else if ((cardNumber.length > 11 && cardNumber.length < 20) && (cardNumber.substring(0, 4) === "5018" || cardNumber.substring(0, 4) === "5020" || cardNumber.substring(0, 4) === "5038" || cardNumber.substring(0, 4) === "6304")) {
+    return "Maestro";
   }
 };
 
